@@ -1,0 +1,360 @@
+@import 'classes';
+ 
+ 
+/* 
+TABLE OF CONTENTS
+  
+  HTML & Resets
+  Animations
+  Grid & Structure
+  Navigation
+  Content Styles 
+  Form Elements
+  Footer
+*/
+   
+    
+// =======================================================================
+// HTML & Resets
+// =======================================================================
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin:0;
+    padding:0; 
+}
+ 
+*, *:before, *:after {
+    @include box-sizing;
+}
+
+article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object {
+    display:block
+}
+
+body {
+    color: $text-color; 
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%   
+}
+
+body, input, textarea, select, button {
+    font-family: $font-body;
+}
+
+a, a:visited {
+    color: $link-color;
+    text-decoration: none;
+    &:hover, &:active {
+        color:$link-color-hover;
+    }
+}
+    
+a:hover, :focus, li:hover, img:hover, input:hover {
+    @include transition(.3s);
+}
+
+p { 
+    margin: $vert-rhythm;
+    line-height:$leading;
+}
+
+hr {
+    display: block;
+    height:1px;
+    background:$border-dark;
+    color:$border-dark;
+    border:0;
+}
+
+figure {
+    position:relative;
+    img {
+        width:100%
+    }
+}
+
+img {
+    height: auto;
+    max-width:100%
+}
+    
+h1, h2, h3, h4, h5 {
+    font-family: $font-display;
+   @extend .tuning;
+}
+
+
+
+// =======================================================================
+// Animations
+// =======================================================================  
+
+
+
+    
+
+// =======================================================================
+// Grid & Structure
+// =======================================================================
+   
+.row {
+    max-width: $content-width;
+    clear: both;
+    margin:0 auto;
+    
+    .col-content {
+        width:$eightcol;
+        float:left;
+    }
+    
+    .col-sidebar {
+        width:$fourcol;
+        float:right;
+    }
+    
+    .full-width {
+        width:$twelvecol;
+    }       
+    
+    .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+        float: left;
+        min-height: 1px;
+    }
+}   
+
+.left {
+    float:left
+}
+
+.right {
+    float:right
+}
+
+
+
+// =======================================================================
+// Navigation
+// =======================================================================
+
+.navbar {
+    background:$bg-dark;
+    height:58px;
+    color:#f6f9fa;
+    position: absolute;
+    z-index:2;
+    width:100%;
+    nav {
+        position: absolute;
+        top:10px;
+        left:10px;
+    }
+    a.logo, a.logo:visited {
+        font-size:22px;
+        font-family: 'lust';
+        color:#fff;
+        @extend .tuning;
+        position: absolute;
+        @include transform-center;
+        top: 30px;
+    }
+    a.button, a.button:visited {
+        position:absolute;
+        right:10px;
+        background:$highlight;
+        @extend .tiny-label;
+        top:10px;
+        &:hover, &:active {
+            background:darken($highlight,7%);
+        }
+    }
+}
+
+
+
+    
+// =======================================================================
+// Content Styles
+// =======================================================================
+
+
+
+/*Misc*/
+
+#map {
+    position:absolute;
+    width:100%;
+    z-index:1;
+    height:100%;
+}    
+            
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.tiny-label {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: 10.5px;
+}
+
+.tuning {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+    
+// =======================================================================
+// Post Styles
+// =======================================================================
+
+
+article {
+    
+    h1 {
+        font-size:2.4em;
+    }
+    
+    h2 {
+        font-size:2em;
+    }
+            
+    h3 {
+        font-size:1.8em;
+    }
+    
+    h4 {
+        font-size:1.4em;
+    }
+    
+    h5 {
+        font-size: 1em
+    }
+    
+    h6 {
+        font-size: .8em;
+    }
+   
+   blockquote {
+        padding:0 18px;
+        margin:25px 45px;
+        border-left:3px solid $border-dark;
+        color:$text-color-lt;
+    }
+    
+    pre, code {
+        font: 1em "Courier New", Courier, monospace;
+    }
+    
+    code {
+        background:$bg-lt;
+        padding:8px;
+        color:$text-color-lt;
+        display:block;
+    }
+    
+    ul, ol {
+        padding:15px 0;
+    }
+    
+    ul li, ol li {
+        margin:0 0 10px 48px;
+        line-height:135%;
+    }
+            
+    ul {
+        list-style:disc;
+    }
+
+    dl dt {
+        font-weight: bold;
+        font-size:1.2em;
+    }
+    
+    dl dd {
+        margin: 0 0 15px 0;
+    }
+    
+    #wp-edit {
+        clear: both;
+    }
+    
+    img {
+        display:block;
+        margin:22px auto;
+    }   
+}
+
+
+
+    
+// =======================================================================
+// Form Elements
+// =======================================================================
+
+input[type=text], input[type=email], input[type=password], textarea {
+    border-style:solid;
+    border-width:1px;
+    border-color:#979797 #c6c6c6 #c6c6c6 #979797;
+    padding:8px;
+    color:$text-color;
+    font-size:.95em;
+    @include box-sizing;
+}
+
+textarea {
+    width:100%;
+}   
+
+input:focus, textarea:focus {
+    border-color:#333;
+}
+
+a.button, a.button:visited, .button, input[type=submit] {
+    background:#333;
+    color:#fff;
+    padding: 12px 32px;
+    @include rounded(3px);
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+    border:none;
+    @extend .tiny-label;
+}
+
+a.button:hover, a.button:active, .button:hover, .button:active, input[type=submit]:hover, input[type=submit]:focus {
+    outline:none;
+    background:#000;
+}
+
+
+    
+
+
+// =======================================================================
+// Footer
+// =======================================================================
+         
+footer {
+    background: $bg-dark;
+    margin-top: 30px;
+    color: #a0a0a0;
+    padding: 15px;
+    
+    a, a:visited {
+    }
+
+    a:hover, a:active {
+    }
+}
+    
+    
+    
